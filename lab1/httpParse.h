@@ -19,6 +19,7 @@
 using std::string, std::unordered_map, std::cout, std::endl;
 
 const string HTTP404 = "HTTP/1.0 404 Not Found\r\nConnection: close\r\nContent-Length: 9\r\n\r\nNot Found";
+const string HTTP400 = "HTTP/1.0 400 Bad Request\r\nConnection: close\r\nContent-Length: 11\r\n\r\nBad Request";
 
 enum HTTP_CODE {
     NO_REQUEST,

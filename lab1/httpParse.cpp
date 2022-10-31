@@ -155,11 +155,6 @@ void http_response(int sock, unordered_map<string, string> &m_map) {
         //存储映射，防止因文件过大爆栈
         close(opened_file);
 
-        printf("The file size is: %ld\r\n", file_size);
-        printf("The context is \r\n");
-//        write(1, memfile, file_size);
-        printf("\r\n");
-
         string file_type = get_file_type(file_name);
         char buff[4096], FlTp[256], ConLen[256];
         memset(buff, 0, sizeof(buff));
@@ -179,10 +174,15 @@ void http_response(int sock, unordered_map<string, string> &m_map) {
         printf("Send successfully\n");
         printf("Send:\n%s\n", buff);
 
+        printf("The file size is: %ld\n", file_size);
+        printf("The context is \n");
+//        write(1, memfile, file_size);
+        printf("\n");
+
         munmap(memfile, file_size);
         return;
     } else {
-        string rsp = "HTTP/1.0 400 Bad Request\r\n\r\n";
+        string rsp = HTTP400;
         send(sock, rsp.c_str(), strlen(rsp.c_str()), 0);
         return;
     }
