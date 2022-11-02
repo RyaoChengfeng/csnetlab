@@ -1,8 +1,8 @@
 #include "Global.h"
-#include "GBNRdtReceiver.h"
+#include "TCPRdtReceiver.h"
 
 
-GBNRdtReceiver::GBNRdtReceiver() : expectSequenceNumberRcvd(0) {
+TCPRdtReceiver::TCPRdtReceiver() : expectSequenceNumberRcvd(0) {
     seqsize = 8;
     winsizeN = 4;
     lastAckPkt.acknum = -1; //初始状态下，上次发送的确认包的确认序号为-1，使得当第一个接受的数据包出错时该确认报文的确认号为-1
@@ -15,10 +15,10 @@ GBNRdtReceiver::GBNRdtReceiver() : expectSequenceNumberRcvd(0) {
 }
 
 
-GBNRdtReceiver::~GBNRdtReceiver() {
+TCPRdtReceiver::~TCPRdtReceiver() {
 }
 
-void GBNRdtReceiver::receive(const Packet &packet) {
+void TCPRdtReceiver::receive(const Packet &packet) {
     //检查校验和是否正确
     int checkSum = pUtils->calculateCheckSum(packet);
 

@@ -39,3 +39,10 @@ aux_source_directory(lab2/SR SR_LIST)
 add_executable(SR ${SR_LIST})
 FIND_LIBRARY(NETSIM_LIB libnetsim.a lab2/lib)
 TARGET_LINK_LIBRARIES(SR  ${NETSIM_LIB})
+
+# TCP
+INCLUDE_DIRECTORIES(lab2/include)
+aux_source_directory(lab2/TCP TCP_LIST)
+add_executable(TCP ${TCP_LIST})
+FIND_LIBRARY(NETSIM_LIB libnetsim.a lab2/lib)
+TARGET_LINK_LIBRARIES(TCP  ${NETSIM_LIB})

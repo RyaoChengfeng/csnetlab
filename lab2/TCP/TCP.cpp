@@ -5,16 +5,16 @@
 #include "Global.h"
 #include "RdtSender.h"
 #include "RdtReceiver.h"
-#include "GBNRdtSender.h"
-#include "GBNRdtReceiver.h"
+#include "TCPRdtSender.h"
+#include "TCPRdtReceiver.h"
 
 const string path = "/home/ryao/Projects/cppProjects/csnetlab/lab2/";
 const string input = "input.txt";
 const string output = "output.txt";
 
 int main(int argc, char *argv[]) {
-    RdtSender *ps = new GBNRdtSender();
-    RdtReceiver *pr = new GBNRdtReceiver();
+    RdtSender *ps = new TCPRdtSender();
+    RdtReceiver *pr = new TCPRdtReceiver();
     pns->setRunMode(0);  //VERBOS模式
     // pns->setRunMode(1);  //安静模式
     pns->init();
